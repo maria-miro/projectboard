@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect()->route('projects.index');
+})->name('home');
+
+Route::group(['middleware' => 'auth'], function(){
+
+    Route::resource('projects', 'ProjectController');
+
+
+	Route::post('projects/{project}/tasks','ProjectTaskController@store');
+	Route::patch('tasks/{task}','ProjectTaskController@update');
+
+	Route::post('projects/{project}/invitations', 'ProjectInvitationController@store');
+}); 
+
+
+Auth::routes();

@@ -27,4 +27,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'owner_id')->latest('updated_at');
+    }
+
+    public function sharedProjects()
+    {
+        return $this->belongsToMany(Project::class, 'project_members')->latest('updated_at');
+    }
+
+    public function accessibleProjects()
+    {
+        return $this->projects->merge($this->sharedProjects);
+    }
+
 }
