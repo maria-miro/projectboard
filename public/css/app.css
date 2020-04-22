@@ -5463,7 +5463,7 @@ table {
 
 .theme-light {
   --page-background-color: #f5f6f9;
-  --card-background-color: #f5f6f9;
+  --card-background-color: white;
   --button-background-color: #ef5753;
   --header-background-color: white;
   --text-default-color: #222;
@@ -5477,9 +5477,9 @@ table {
 
 .theme-dark {
   --page-background-color: #17181e;
-  --card-background-color: #1f2027;
+  --card-background-color: #697377d6;
   --button-background-color: #ef5753;
-  --header-background-color: #1f2027;
+  --header-background-color: #697377d6;
   --text-default-color: #fff;
   --text-muted-color: rgba(255, 255, 255, .5);
   --text-muted-light-color: rgba(255, 255, 255, .3);

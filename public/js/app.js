@@ -1859,8 +1859,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: new Form({
-        title: 'New Project',
-        description: 'description',
+        title: '',
+        description: '',
         tasks: [{
           body: ''
         }]
@@ -48816,8 +48816,8 @@ function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/maria/Develop/Valet/birdboard/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/maria/Develop/Valet/birdboard/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/maria/Develop/Valet/projectboard/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/maria/Develop/Valet/projectboard/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

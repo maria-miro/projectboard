@@ -57,8 +57,8 @@
 		data() {
 			return {				
 				form : new Form ({
-					title: 'New Project',
-					description: 'description',
+					title: '',
+					description: '',
 					tasks: [
 						{body: ''},
 					],
