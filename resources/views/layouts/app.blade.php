@@ -27,7 +27,7 @@
                     <!-- Left Side Of Navbar -->
 
                     <div class="flex items-center flex-no-shrink mr-6">
-                            <a href="{{ url('/projects') }}"class="font-semibold text-red-600 text-xl tracking-tight no-underline visited:text-red-600">
+                            <a href="{{ route('home') }}"class="font-semibold text-red text-xl tracking-tight no-underline visited:text-red">
                                 {{ config('app.name', 'ProjectBoard') }}
                             </a>
                     </div>

@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return redirect()->route('projects.index');
+ //    if (auth()->check()) {
+	// 	return redirect()->route('projects.index');
+	// }
+    return view('home');
+
 })->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
