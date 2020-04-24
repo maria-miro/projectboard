@@ -11,13 +11,7 @@
 |
 */
 
-Route::get('/', function () {
- //    if (auth()->check()) {
-	// 	return redirect()->route('projects.index');
-	// }
-    return view('home');
-
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
 
@@ -32,3 +26,6 @@ Route::group(['middleware' => 'auth'], function(){
 
 
 Auth::routes();
+Route::get('login-guest', 'Auth\LoginController@loginAsGuest');
+
+Route::get('reset','DatabaseSeederController')->middleware('can:reset-demo');

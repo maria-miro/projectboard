@@ -18,7 +18,7 @@
     <h3 class="text-2xl mb-5 text-gray-200">
         Or you can view demo     
     </h3>
-    <button type="submit" class="button mr-2" onclick="window.location.href='/projects'">Demo</button>
+    <button type="submit" class="button mr-2" onclick="window.location.href='/login-guest'">Demo</button>
 
   </div>
 </div> 

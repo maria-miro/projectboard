@@ -37,4 +37,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function loginAsGuest()
+    {
+        auth()->loginUsingId(config('auth.guest_id'));
+
+        return redirect('/projects');
+    }
 }

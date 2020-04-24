@@ -5,6 +5,9 @@
     <header class="flex items-center mb-3">
         <div class="flex justify-between items-end  w-full">
             <h2 class="text-muted text-base font-light">My projects</h2>
+            @can('reset-demo')
+                <a href="reset" class="button">Reset</a>
+            @endcan
             <a @click.prevent = "$modal.show('new-project')" href="" class="button">Create a new project</a>
 
         </div>

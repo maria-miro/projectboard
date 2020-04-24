@@ -99,4 +99,7 @@ return [
         ],
     ],
 
+    'admin_id' => env('ADMIN_ID', 1),
+    'guest_id' => env('GUEST_ID', 2),
+
 ];

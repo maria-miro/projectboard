@@ -25,6 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('reset-demo', function ($user) {
+            return $user->id == config('auth.admin_id') || $user->id == config('auth.guest_id');
+        });
     }
 }
