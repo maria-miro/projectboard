@@ -31,11 +31,11 @@ class ProjectFactory
 
     public function create()
     {
-        $project = factory(Project::class)->create([
-            'owner_id' => $this->user ?? factory(User::class)
+        $project = Project::factory()->create([
+            'owner_id' => $this->user ?? User::factory()
         ]);
 
-        factory(Task::class, $this->tasksCount)->create([
+        Task::factory($this->tasksCount)->create([
             'project_id' => $project->id
         ]);
 

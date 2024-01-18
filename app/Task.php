@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Task extends Model
 {
-    use RecordsActivity;
+    use RecordsActivity, HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 

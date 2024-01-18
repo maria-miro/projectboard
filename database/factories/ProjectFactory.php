@@ -1,12 +1,34 @@
 <?php
 
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(App\Project::class, function (Faker $faker) {
-    return [
-        'title' => $faker->sentence(5),
-        'description' => $faker->sentence(6),
-        'notes' => $faker->sentence(10),
-        'owner_id' => factory(App\User::class),
-    ];
-});
+use App\Project;
+use App\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+class ProjectFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Project::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'title' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(6),
+            'notes' => $this->faker->sentence(10),
+            'owner_id' => User::factory(),
+        ];
+
+    }
+}

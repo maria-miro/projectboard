@@ -18,7 +18,7 @@ class ManageProjectsTest extends TestCase
     {
     	// $this->withoutExceptionHandling();
 
-        $project = factory('App\Project')->create();
+        $project = Project::factory()->create();
 
     	$this->post('/projects', $project->toArray())->assertRedirect('login');
         $this->get('/projects')->assertRedirect('/login');
@@ -34,7 +34,7 @@ class ManageProjectsTest extends TestCase
 
         $this->get('/projects/create')->assertStatus(200);
 
-        $attributes = factory(Project::class)->raw();
+        $attributes = Project::factory()->raw();
 
         $this->followingRedirects()->post('/projects', $attributes)
             ->assertSee($attributes['title'])
@@ -47,7 +47,7 @@ class ManageProjectsTest extends TestCase
     {
          $this->signIn();
 
-         $attributes = factory(Project::class)->raw();
+         $attributes = Project::factory()->raw();
 
          $attributes['tasks'] = [
             ['body' => 'task1'],
@@ -63,7 +63,7 @@ class ManageProjectsTest extends TestCase
     {
         $this->signIn();
 
-         $attributes = factory(Project::class)->raw();
+         $attributes = Project::factory()->raw();
 
          $attributes['tasks'] = [
             ['body' => ''],
@@ -135,7 +135,7 @@ class ManageProjectsTest extends TestCase
     {
     	$this->signIn();
 
-    	$attributes = factory('App\Project')->raw(['title' => '']);
+    	$attributes = Project::factory()->raw(['title' => '']);
 
     	$this->post('/projects', $attributes)->assertSessionHasErrors('title');
     }
@@ -145,7 +145,7 @@ class ManageProjectsTest extends TestCase
     {
         $this->signIn();    	
 
-    	$attributes = factory('App\Project')->raw(['description' => '']);
+    	$attributes = Project::factory()->raw(['description' => '']);
 
     	$this->post('/projects', $attributes)->assertSessionHasErrors('description');
     }
@@ -180,7 +180,7 @@ class ManageProjectsTest extends TestCase
     	// $this->withoutExceptionHandling();
 
         $this->signIn();
-    	$project = factory('App\Project')->create();
+    	$project = Project::factory()->create();
 
     	$this->get($project->path())->assertStatus(403);
     }
@@ -191,7 +191,7 @@ class ManageProjectsTest extends TestCase
         // $this->withoutExceptionHandling();
 
         $this->signIn();
-        $project = factory('App\Project')->create();
+        $project = Project::factory()->create();
 
         $this->patch($project->path())->assertStatus(403);
     }

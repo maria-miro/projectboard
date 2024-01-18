@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Project;
+use App\User;
 use Facades\Tests\Setup\ProjectFactory;
 
 class InvitationsTest extends TestCase
@@ -18,9 +19,9 @@ class InvitationsTest extends TestCase
     {
         $project = ProjectFactory::create();
 
-        $invitee = factory(\App\User::class)->create();
+        $invitee = User::factory()->create();
 
-        $nonower = factory(\App\User::class)->create();
+        $nonower = User::factory()->create();
 
         $this->actingAs($nonower)
             ->post($project->path() . '/invitations', [
@@ -47,7 +48,7 @@ class InvitationsTest extends TestCase
 
         $project = ProjectFactory::create();
 
-        $invitee = factory(\App\User::class)->create();
+        $invitee = User::factory()->create();
 
         $this->actingAs($project->owner)
             ->post($project->path() . '/invitations', [
@@ -64,7 +65,7 @@ class InvitationsTest extends TestCase
    {
         $project = ProjectFactory::create();
 
-        $project->invite($invitee = factory(\App\User::class)->create());
+        $project->invite($invitee = User::factory()->create());
 
         $this->actingAs($invitee)
             ->post(action('ProjectTaskController@store', $project), $task =['body' => 'New task']);

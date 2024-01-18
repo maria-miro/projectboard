@@ -6,6 +6,9 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Collection;
+use App\User;
+use App\Project;
+
 
 class UserTest extends TestCase
 {
@@ -14,7 +17,7 @@ class UserTest extends TestCase
 	/** @test */
     public function has_projects()
     {
-    	$user = factory('App\User')->create();
+    	$user = User::factory()->create();
 
     	$this->assertInstanceOf(Collection::class, $user->projects);
     }
@@ -22,12 +25,12 @@ class UserTest extends TestCase
     /** @test */
     public function has_accessible_projects()
     {
-        $user = factory('App\User')->create();
+        $user = User::factory()->create();
 
-        $ownProject = factory('App\Project')->create(['owner_id' => $user->id]);
+        $ownProject = Project::factory()->create(['owner_id' => $user->id]);
 
-        $project1 = factory('App\Project')->create();
-        $project2 = factory('App\Project')->create();
+        $project1 = Project::factory()->create();
+        $project2 = Project::factory()->create();
         $project1->invite($user);
 
         $this->assertTrue($user->accessibleProjects()->contains($ownProject));

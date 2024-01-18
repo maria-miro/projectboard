@@ -6,6 +6,8 @@ use Facades\Tests\Setup\ProjectFactory;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Project;
+use App\Task;
 
 class ProjectTasksTest extends TestCase
 {
@@ -14,7 +16,7 @@ class ProjectTasksTest extends TestCase
     /** @test */
     public function a_guest_cannot_add_tasks_to_projects()
     {
-        $project = factory('App\Project')->create();
+        $project = Project::factory()->create();
 
         $this->post($project->path() . '/tasks')->assertRedirect('login');
     }
@@ -26,7 +28,7 @@ class ProjectTasksTest extends TestCase
 
         $this->signIn();
 
-        $project = factory('App\Project')->create();
+        $project = Project::factory()->create();
 
         $this->post($project->path() . '/tasks', ['body' => 'Task Test'])
         ->assertStatus(403);
@@ -137,7 +139,7 @@ class ProjectTasksTest extends TestCase
         $project = ProjectFactory::create();
 
         
-        $attributes = factory('App\Task')->raw(['body' => '', 'project_id' => $project->id]);
+        $attributes = Task::factory('')->raw(['body' => '', 'project_id' => $project->id]);
 
         $this->actingAs($project->owner)
             ->post($project->path() . '/tasks', $attributes)->assertSessionHasErrors('body');
