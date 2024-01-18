@@ -6,8 +6,8 @@ use Facades\Tests\Setup\ProjectFactory;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Project;
-use App\Task;
+use App\Models\Project;
+use App\Models\Task;
 
 class ProjectTasksTest extends TestCase
 {

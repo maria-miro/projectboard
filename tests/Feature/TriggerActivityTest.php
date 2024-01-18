@@ -6,7 +6,7 @@ use  Facades\Tests\Setup\ProjectFactory;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Task;
+use App\Models\Task;
 
 class TriggerActivityTest extends TestCase
 {

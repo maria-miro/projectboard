@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Task;
-use App\Project;
+use App\Models\Task;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 

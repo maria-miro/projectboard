@@ -6,8 +6,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Collection;
-use App\User;
-use App\Project;
+use App\Models\User;
+use App\Models\Project;
 
 
 class UserTest extends TestCase

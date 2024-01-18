@@ -10,7 +10,7 @@
             
             @csrf
             
-            @include('projects.form',['project' => new App\Project])
+            @include('projects.form',['project' => new App\Models\Project])
        
             <div class="field">
                 <button type="submit" class="button mr-2">Create</button>

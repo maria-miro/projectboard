@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
-use App\Project;
+use App\Models\Task;
+use App\Models\Project;
 
 use Illuminate\Http\Request;
 
@@ -48,7 +48,7 @@ class ProjectTaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function show(Task $task)
@@ -59,7 +59,7 @@ class ProjectTaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function edit(Task $task)
@@ -71,7 +71,7 @@ class ProjectTaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Task  $task
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function update(Task $task)
@@ -90,7 +90,7 @@ class ProjectTaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function destroy(Task $task)

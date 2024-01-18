@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Task;
+use App\Models\Task;
 
 class TaskTest extends TestCase
 {
@@ -24,7 +24,7 @@ class TaskTest extends TestCase
     {
     	$task = Task::factory()->create();
 
-    	$this->assertInstanceOf('App\Project', $task->project);
+    	$this->assertInstanceOf('App\Models\Project', $task->project);
     }
 
     /** @test */

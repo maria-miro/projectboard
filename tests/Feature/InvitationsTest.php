@@ -5,8 +5,8 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Project;
-use App\User;
+use App\Models\Project;
+use App\Models\User;
 use Facades\Tests\Setup\ProjectFactory;
 
 class InvitationsTest extends TestCase

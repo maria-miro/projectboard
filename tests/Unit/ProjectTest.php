@@ -5,8 +5,8 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Project;
-use App\User;
+use App\Models\Project;
+use App\Models\User;
 
 class ProjectTest extends TestCase
 {
@@ -26,7 +26,7 @@ class ProjectTest extends TestCase
     {
     	$project = Project::factory()->create();
 
-    	$this->assertInstanceOf('App\User', $project->owner);
+    	$this->assertInstanceOf('App\Models\User', $project->owner);
 
     }
 
@@ -48,7 +48,7 @@ class ProjectTest extends TestCase
 
         $project->invite($invitee = User::factory()->create());
 
-        $this->assertInstanceOf('App\User', $invitee);
+        $this->assertInstanceOf('App\Models\User', $invitee);
 
         $this->assertTrue($project->members->contains($invitee));
 
