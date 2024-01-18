@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectTaskController;
+use App\Http\Controllers\ProjectInvitationController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DatabaseSeederController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,21 +18,22 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::resource('projects', 'ProjectController');
+    Route::resource('projects', ProjectController::class);
 
 
-	Route::post('projects/{project}/tasks','ProjectTaskController@store');
-	Route::patch('tasks/{task}','ProjectTaskController@update');
+	Route::post('projects/{project}/tasks',[ProjectTaskController::class, 'store']);
+	Route::patch('tasks/{task}',[ProjectTaskController::class,'update']);
 
-	Route::post('projects/{project}/invitations', 'ProjectInvitationController@store');
+	Route::post('projects/{project}/invitations', [ProjectInvitationController::class, 'store']);
 }); 
 
 
 Auth::routes();
-Route::get('login-guest', 'Auth\LoginController@loginAsGuest');
 
-Route::get('reset','DatabaseSeederController')->middleware('can:reset-demo');
+Route::get('login-guest', [LoginController::class, 'loginAsGuest']);
+
+Route::get('reset', DatabaseSeederController::class)->middleware('can:reset-demo');

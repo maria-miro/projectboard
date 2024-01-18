@@ -8,6 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Project;
 use App\Models\User;
 use Facades\Tests\Setup\ProjectFactory;
+use App\Http\Controllers\ProjectTaskController;
+
 
 class InvitationsTest extends TestCase
 {
@@ -68,7 +70,7 @@ class InvitationsTest extends TestCase
         $project->invite($invitee = User::factory()->create());
 
         $this->actingAs($invitee)
-            ->post(action('ProjectTaskController@store', $project), $task =['body' => 'New task']);
+            ->post(action([ProjectTaskController::class, 'store'], $project), $task =['body' => 'New task']);
 
         $this->assertDatabaseHas('tasks', $task);
     }
