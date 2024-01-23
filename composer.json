@@ -9,18 +9,18 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "laravel/framework": "^9.0",
+        "laravel/framework": "^10.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^3.0"
+        "laravel/ui": "^4.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
         "fakerphp/faker": "^1.23",
         "filp/whoops": "^2.0",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.0",
-        "spatie/laravel-ignition": "^1.0"
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0"
     },
     "config": {
         "optimize-autoloader": true,
