@@ -15,7 +15,6 @@ class DatabaseSeederController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // return 'pum';
         Artisan::call('db:seed');
         return  redirect()->back();
     }
